@@ -6,22 +6,41 @@ juego.
 
 ## Instalación
 
-1. Instala **BepInEx 5.4.x (x64)** en la carpeta del juego, la que contiene
-   `VtM Shadows of New York.exe`. Descárgalo de
-   <https://github.com/BepInEx/BepInEx/releases> (`BepInEx_x64_5.4.*.zip`) y descomprímelo
-   ahí.
-2. Abre el juego una vez y ciérralo. BepInEx crea sus carpetas en ese primer arranque.
-3. Descomprime el archivo de esta traducción en la misma carpeta. Ya incluye la ruta
+Todo se hace en la carpeta del juego, la que contiene `VtM Shadows of New York.exe`. En
+Steam se abre así: botón derecho sobre el juego → **Administrar → Ver archivos locales**.
+En una instalación por defecto es:
+
+```
+C:\Program Files (x86)\Steam\steamapps\common\Vampire The Masquerade - Shadows of New York
+```
+
+1. **Descarga BepInEx.** En <https://github.com/BepInEx/BepInEx/releases>, abre una
+   versión **5.4.x** (no la 6, que es experimental) y descarga
+   `BepInEx_win_x64_5.4.*.zip`. Tiene que ser **x64**, no x86: es el error más común.
+2. **Descomprímelo en la carpeta del juego**, de forma que `winhttp.dll` y la carpeta
+   `BepInEx` queden justo al lado de `VtM Shadows of New York.exe`. Si se han quedado
+   dentro de una subcarpeta (por ejemplo `BepInEx_win_x64_5.4.23\`), sácalos un nivel.
+3. **Abre el juego una vez y ciérralo.** BepInEx crea sus carpetas en ese primer
+   arranque; dentro del juego no verás nada distinto, es normal. Si ha funcionado, ahora
+   existe `BepInEx/LogOutput.log`.
+4. **Descomprime el archivo de esta traducción en la misma carpeta. Ya incluye la ruta
    `BepInEx/plugins/SoNY-ESP/`, así que todo queda en su sitio; si Windows pregunta si
    quieres combinar carpetas, di que sí.
-4. Abre el juego, ve a los ajustes y elige **Español**.
+5. Abre el juego, ve a los ajustes y elige **Español**.
+
+Si no aparece `BepInEx/LogOutput.log` tras el primer arranque, casi siempre es porque
+`winhttp.dll` no está junto al ejecutable o porque se descargó la versión x86. Algunos
+antivirus bloquean `winhttp.dll` la primera vez: en ese caso, añade una excepción para la
+carpeta del juego.
 
 Si todo ha ido bien, tendrás esto:
 
 ```
 Vampire The Masquerade - Shadows of New York/
 ├─ winhttp.dll                  ← BepInEx
+├─ doorstop_config.ini          ← BepInEx
 ├─ BepInEx/
+│  ├─ LogOutput.log
 │  └─ plugins/
 │     └─ SoNY-ESP/
 │        ├─ SoNY.Esp.dll
