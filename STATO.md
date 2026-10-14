@@ -25,8 +25,8 @@ Aggiornato: 14 ottobre 2026
 
 1. **Provarlo giocando**, almeno l'Intro e una scena con la corte, per vedere testi che
    sbordano.
-2. **Pubblicazione**, quando lo decidi: repo GitHub (identità noreply, niente
-   Co-Authored-By), poi Nexus/Steam. Il README per i giocatori è in `release/README.md`.
+2. **Nexus e Steam**, a mano: testi pronti in `nexus/` e `steam/`. GitHub è fatto:
+   release `v0.1.0` pubblicata il 14 ottobre 2026, zip costruito dalla CI.
 3. **Revisione da parte della comunità ispanofona.**
 
 ## Note
