@@ -73,8 +73,12 @@ partidas guardadas no se ven afectadas.
 
 ## Cómo ayudar a mejorarla
 
-Toda corrección es bienvenida. Lo más útil es una captura y la frase tal como debería
-quedar.
+Toda corrección es bienvenida. La forma más sencilla es abrir una incidencia en
+<https://github.com/Xodryx/vtm-shadows-of-new-york-spanish/issues/new/choose> y elegir la
+plantilla que corresponda (error de traducción, texto cortado o el mod no funciona): te
+guía campo a campo. Lo único imprescindible es copiar unas palabras del texto en español
+tal como sale en pantalla. Sin cuenta de GitHub, vale un comentario en Nexus o en la guía
+de Steam.
 
 Si quieres revisar a fondo:
 
@@ -83,9 +87,12 @@ Si quieres revisar a fondo:
 3. En `BepInEx/plugins/SoNY-ESP/` aparecerá **`review_es.csv`**: cada línea con el inglés
    (columna EN) y el español (columna ES) lado a lado. Se abre con LibreOffice Calc,
    Excel o Google Sheets (codificación UTF-8, separado por comas).
-4. Corrige la columna ES. Para probar los cambios en el juego, guarda el archivo como
-   `es.csv` (en CSV UTF-8) en lugar del original: el plugin lee la última columna.
-5. Vuelve a poner `Enabled = false` cuando termines.
+4. Corrige la columna ES, sin tocar las demás: identifican cada línea. Para probar los
+   cambios en el juego, guarda el archivo como `es.csv` (en CSV UTF-8) en lugar del
+   original: el plugin lee la última columna.
+5. Envíanos el archivo adjunto a una incidencia: tus correcciones pasan directamente a la
+   traducción.
+6. Vuelve a poner `Enabled = false` cuando termines.
 
 Las reglas de estilo y el glosario están en `GUIA_DE_ESTILO.md`, en el repositorio del
 proyecto.

@@ -117,26 +117,55 @@ los caracteres necesarios (el latín extendido funciona; el chino y el japonés,
 
 ## Cómo colaborar
 
-Para revisar sin tocar código:
+Hay tres formas de ayudar, de menos a más esfuerzo. Todas sirven.
+
+### 1. Avisar de un error mientras juegas
+
+[Abre una incidencia](../../issues/new/choose) y elige la plantilla que corresponda:
+
+| Plantilla | Para qué |
+|---|---|
+| **Error de traducción** | Una frase mal traducida, poco natural, o con el tono o el tratamiento equivocado. |
+| **Texto cortado o fuera del cuadro** | La frase no cabe o se sale del borde. Aquí la captura es imprescindible. |
+| **El mod no funciona** | El español no aparece, el juego sigue en inglés o no arranca. |
+
+Las plantillas te van guiando campo a campo. Lo único imprescindible es **copiar unas
+palabras del texto en español tal como sale en pantalla**: con eso se encuentra la línea
+exacta entre 5699. Si no tienes cuenta de GitHub, vale también un comentario en Nexus o en
+la guía de Steam.
+
+### 2. Revisar a fondo con la hoja de revisión
+
+Si quieres repasar escenas enteras con el inglés delante, sin tocar código:
 
 1. En `BepInEx/config/sony.esp.cfg`, pon `Enabled = true` en la sección `[1. Dump]`.
 2. Abre el juego hasta el menú principal y ciérralo.
 3. En `BepInEx/plugins/SoNY-ESP/` aparece `review_es.csv`, con el inglés y el español
    lado a lado. Ábrelo con Excel, LibreOffice o Google Sheets y corrige la columna ES.
-4. Para probarlo, guárdalo como `es.csv` (CSV UTF-8) en lugar del original: el plugin lee
-   la última columna. Vuelve a poner `Enabled = false` al terminar.
+   No toques las otras columnas: identifican cada línea.
+4. Para ver tus cambios en el juego, guárdalo como `es.csv` (CSV UTF-8) en lugar del
+   original: el plugin lee la última columna.
+5. **Envíanos el archivo**: adjúntalo a una [incidencia](../../issues/new/choose)
+   (GitHub acepta archivos `.csv`). Con `import_review.py` tus correcciones pasan
+   directamente a la traducción, sin copiarlas a mano.
+6. Vuelve a poner `Enabled = false` al terminar.
 
-Las reglas de traducción (glosario, voz de Julia, tú/usted, tipografía) están en
-[GUIA_DE_ESTILO.md](GUIA_DE_ESTILO.md).
+Antes de cambiar términos o el tratamiento entre personajes, mira
+[GUIA_DE_ESTILO.md](GUIA_DE_ESTILO.md): glosario, voz de Julia, tú/usted y tipografía.
 
-Para trabajar sobre el repositorio, copia `dump_en.csv`, `dump_ui_en.csv` y `links.csv`
-desde la carpeta del plugin a la raíz del proyecto y:
+### 3. Trabajar sobre el repositorio
+
+Para cambios grandes, haz un *pull request* sobre `blocks/*.json`, que es la fuente de la
+traducción. Copia `dump_en.csv`, `dump_ui_en.csv` y `links.csv` desde la carpeta del
+plugin a la raíz del proyecto y:
 
 ```
-python -X utf8 reading_order.py 114 --todo      # líneas de la conversación 114, en orden de lectura
-python -X utf8 apply.py --check blocks/x.json   # comprobar un bloque sin escribir nada
-python -X utf8 apply.py blocks/*.json           # regenerar es.csv en la carpeta del plugin
-python -X utf8 build_ui.py                      # regenerar ui_es.csv
+python -X utf8 reading_order.py 114 --todo          # líneas de la conversación 114, en orden de lectura
+python -X utf8 apply.py --check blocks/x.json       # comprobar un bloque sin escribir nada
+python -X utf8 apply.py blocks/*.json               # regenerar es.csv en la carpeta del plugin
+python -X utf8 build_ui.py                          # regenerar ui_es.csv
+python -X utf8 import_review.py review_es.csv       # ver qué cambia una hoja de revisión
+python -X utf8 import_review.py review_es.csv --write   # y aplicarlo a los bloques
 ```
 
 ## Estructura del repositorio
@@ -148,6 +177,7 @@ python -X utf8 build_ui.py                      # regenerar ui_es.csv
 | `apply.py` | une los bloques en `es.csv` comprobando marcadores, saltos de línea y longitud |
 | `reading_order.py` | reconstruye el orden de lectura a partir del grafo de diálogos |
 | `build_ui.py` | genera `ui_es.csv` con lo que la interfaz oficial no cubre |
+| `import_review.py` | pasa a los bloques las correcciones de una hoja `review_es.csv` |
 | `glossary_es.json` | forma oficial de cada término marcado como `[ID;término]` |
 | `ui_manual_es.json` | las 42 descripciones del diccionario que el juego no traía en español |
 | `GUIA_DE_ESTILO.md` | glosario completo y normas de estilo |
