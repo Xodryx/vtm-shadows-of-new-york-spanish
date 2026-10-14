@@ -9,6 +9,11 @@ arrancar. **No se modifica ningún archivo del juego.**
 los personajes y las misiones. Todas las conversaciones, los dos finales y todas las ramas
 opcionales.
 
+| | |
+|---|---|
+| ![El menú principal en español](docs/images/main-menu.jpg) | ![Español elegido en los ajustes de idioma](docs/images/language-setting.jpg) |
+| El menú principal, en español. | *Español* en **Ajustes → Texto → Idioma**, junto a los cuatro idiomas que trae el juego. |
+
 > ### Hecha con IA: puede tener errores
 >
 > Tanto el texto en español como el plugin en C# los ha escrito un asistente de IA
