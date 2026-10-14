@@ -1,0 +1,30 @@
+# Full script dumps extracted from the games. These are the complete copyrighted
+# dialogue of Shadows of New York and Coteries of New York, so they stay out of the
+# repository. Anyone building the mod regenerates them from their own copy by
+# launching the game once with the plugin installed - see plugin/README.md.
+dump_en.csv
+dump_coteries_en_it.csv
+dump_ui_en.csv
+parallel_corpus.csv
+
+# Scratch output from reading_order.py / match_official_ui.py
+next.txt
+order.err
+todo_*.txt
+ui_todo.csv
+
+# Third-party binaries, not ours to redistribute
+bepinex/
+
+# Build output
+plugin/bin/
+plugin/obj/
+
+# Release archives are built on demand, not tracked
+SoNY-ESP-*.zip
+
+# Third-party reference material: Bloodlines 2 text, decompiled game code, the Italian draft
+reference/
+
+# Scratch files written by translators
+work/

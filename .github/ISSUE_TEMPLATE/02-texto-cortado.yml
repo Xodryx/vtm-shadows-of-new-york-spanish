@@ -1,0 +1,53 @@
+name: "Texto cortado o fuera del cuadro"
+description: "La frase en español no cabe, se sale del borde o queda cortada"
+title: "[Texto cortado] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        El español suele ser más largo que el inglés. Las traducciones se comprueban con
+        un límite de longitud, pero ese límite es una estimación, no el motor del juego.
+        Así que este tipo de problema es esperable, y se arregla acortando la frase.
+
+        **Aquí la captura sí es imprescindible**, porque muestra cuánto espacio falta.
+
+  - type: textarea
+    id: texto
+    attributes:
+      label: "El texto en español, lo que se llegue a leer"
+      description: "Sirve para encontrar la línea exacta. Si está cortado, copia la parte visible."
+    validations:
+      required: true
+
+  - type: textarea
+    id: captura
+    attributes:
+      label: "Captura de pantalla"
+      description: "Arrastra aquí la imagen."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: donde
+    attributes:
+      label: "Dónde aparece"
+      options:
+        - "Línea de diálogo"
+        - "Opción de diálogo"
+        - "Entrada del diccionario"
+        - "Nombre de un personaje"
+        - "Misión o registro"
+        - "Menú o interfaz"
+        - "Otro / no lo sé"
+    validations:
+      required: true
+
+  - type: input
+    id: resolucion
+    attributes:
+      label: "Resolución de pantalla"
+      description: "Opcional, pero útil: el espacio disponible cambia."
+      placeholder: "2560x1440"
+    validations:
+      required: false

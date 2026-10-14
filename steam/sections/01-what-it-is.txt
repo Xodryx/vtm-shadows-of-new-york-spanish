@@ -1,0 +1,5 @@
+Una traducción completa al español de España de Shadows of New York: las 5699 líneas de diálogo, el diccionario del juego, los nombres de los personajes y las misiones.
+
+El español se añade como [b]quinto idioma en el menú de ajustes[/b], junto al inglés, el francés, el portugués y el ruso. No sustituye a ningún idioma.
+
+[b]No se modifica ningún archivo del juego.[/b] Es un plugin que carga el texto en memoria al arrancar: para desinstalarlo basta con borrar una carpeta, y las partidas guardadas no se tocan en ningún momento.

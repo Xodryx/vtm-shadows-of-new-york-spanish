@@ -1,0 +1,9 @@
+Esta traducción existe gracias al trabajo que otros han regalado.
+
+[b][url=https://github.com/BepInEx/BepInEx]BepInEx[/url][/b] hace la parte difícil. Ejecutar código dentro de un juego de Unity ya publicado, antes de que el propio juego arranque, es todo el problema, y BepInEx lo resuelve tan bien que aquí nunca hubo que pensar en ello.
+
+[b][url=https://github.com/BepInEx/HarmonyX]HarmonyX[/url][/b], y [url=https://github.com/pardeike/Harmony]Harmony[/url] por debajo, es lo que permite traducir sin tocar un solo archivo del juego.
+
+[b]Draw Distance[/b] escribió un juego que merecía el esfuerzo, y lo publicó con el español a medio camino: un valor [i]Language.ES[/i], un método [i]GetTextEs[/i] y una columna de traducción oficial ya presentes, sin usar. Esa función a medio terminar es lo que permite que el español entre como idioma de verdad.
+
+[b]Paradox Interactive y The Chinese Room[/b], por la localización española de [i]Bloodlines 2[/i], que sirvió de referencia terminológica.

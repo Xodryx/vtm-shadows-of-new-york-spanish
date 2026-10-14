@@ -1,0 +1,7 @@
+Las correcciones son la única forma de arreglar estos fallos.
+
+[url=https://github.com/Xodryx/vtm-shadows-of-new-york-spanish/issues]Correcciones en GitHub[/url], o escribid en los comentarios de aquí abajo.
+
+Si encontráis una frase mal, copiad [b]el texto en español tal como sale en pantalla[/b]. Con unas pocas palabras basta para encontrar la línea exacta entre 5699.
+
+[b]¿Queréis revisarla a fondo?[/b] En [i]BepInEx\config\sony.esp.cfg[/i], poned [i]Enabled = true[/i] en la sección [i][1. Dump][/i] y abrid el juego hasta el menú. En la carpeta del mod aparecerá [i]review_es.csv[/i], con el inglés y el español lado a lado, listo para abrir en Excel, LibreOffice o Google Sheets.

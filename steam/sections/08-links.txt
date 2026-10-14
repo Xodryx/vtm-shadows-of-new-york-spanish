@@ -1,0 +1,5 @@
+[list]
+[*][url=https://github.com/Xodryx/vtm-shadows-of-new-york-spanish/releases/latest]Descargar la traducción[/url]
+[*][url=https://github.com/BepInEx/BepInEx/releases]Descargar BepInEx[/url]
+[*][url=https://github.com/Xodryx/vtm-shadows-of-new-york-spanish]Código fuente y traducciones[/url]: todo es público y se puede comprobar
+[/list]

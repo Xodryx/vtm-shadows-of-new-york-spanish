@@ -1,0 +1,7 @@
+[b]Parte del español ya estaba en el juego.[/b] Shadows of New York trae escondida una traducción oficial del menú, los nombres, los rasgos, los títulos del diccionario y la mitad de las misiones, pero nunca activó el idioma. La traducción la activa tal cual y completa el resto.
+
+La terminología tampoco es inventada: sale de ese español oficial y, donde no llega, del de [i]Bloodlines 2[/i]. [i]Kindred[/i] es [b]Vástago[/b], [i]Final Death[/i] es [b]Muerte Definitiva[/b], [i]lick[/i] es [b]chupóptero[/b].
+
+[b]Aviso importante.[/b] Los diálogos y el plugin los ha escrito una inteligencia artificial bajo supervisión humana. Nadie se ha pasado todavía el juego entero en español para revisarlo. Tomadla como un primer borrador jugable, no como una localización pulida.
+
+En la práctica: la terminología debería ser fiable; los fallos estarán sobre todo en el tono y el registro, y alguna línea podría salirse del cuadro.

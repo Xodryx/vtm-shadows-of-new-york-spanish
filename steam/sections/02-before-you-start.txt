@@ -1,0 +1,13 @@
+[b]Hace falta la versión de Windows en PC.[/b]
+
+[list]
+[*][b]Switch, PS4, Xbox: no es posible.[/b] El mod funciona gracias a BepInEx, que tiene que cargarse dentro del juego antes de que arranque. Una consola no lo permite y no hay alternativa.
+[*][b]macOS y Linux: sin probar.[/b] El juego existe para ambos y BepInEx los soporta, así que podría funcionar, pero nadie lo ha comprobado todavía.
+[/list]
+
+[b]Necesitaréis dos descargas:[/b]
+
+[list]
+[*][url=https://github.com/BepInEx/BepInEx/releases]BepInEx 5.4.x (x64)[/url]: el archivo se llama [i]BepInEx_win_x64_5.4.*.zip[/i]. Ojo con la versión: [b]x64[/b], no x86. Es el error más común.
+[*][url=https://github.com/Xodryx/vtm-shadows-of-new-york-spanish/releases/latest]La traducción al español[/url]: un solo archivo.
+[/list]

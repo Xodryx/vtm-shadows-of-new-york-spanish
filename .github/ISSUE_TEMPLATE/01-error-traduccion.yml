@@ -1,0 +1,56 @@
+name: "Error de traducción"
+description: "Una frase mal traducida, poco natural, o con el tono o el tratamiento equivocado"
+title: "[Traducción] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Gracias: las correcciones son la única forma de arreglar estos fallos.
+
+        **El campo más importante es el primero.** Con unas pocas palabras del texto en
+        español se encuentra la línea exacta entre 5699. Sin ellas, la búsqueda se
+        alarga mucho.
+
+  - type: textarea
+    id: texto
+    attributes:
+      label: "El texto en español, tal como sale en pantalla"
+      description: "Bastan unas pocas palabras, siempre que estén copiadas exactamente. Si tienes captura, transcribe igualmente la frase."
+      placeholder: "Este es mi territorio, panda de parásitos gilipollas."
+    validations:
+      required: true
+
+  - type: textarea
+    id: problema
+    attributes:
+      label: "Qué falla"
+      description: "Con un «suena raro» basta. Si conoces el original en inglés, indícalo."
+      placeholder: |
+        El personaje la trata de usted en esta escena, pero en la anterior la tuteaba.
+    validations:
+      required: true
+
+  - type: textarea
+    id: propuesta
+    attributes:
+      label: "Cómo lo escribirías tú"
+      description: "Opcional, pero una propuesta concreta acorta mucho los plazos."
+    validations:
+      required: false
+
+  - type: input
+    id: donde
+    attributes:
+      label: "En qué parte del juego"
+      description: "Opcional. Noche, escena o personaje que habla."
+      placeholder: "Noche 6, conversación con Hope en el Double Spiral"
+    validations:
+      required: false
+
+  - type: textarea
+    id: captura
+    attributes:
+      label: "Captura de pantalla"
+      description: "Opcional. Arrastra aquí la imagen."
+    validations:
+      required: false

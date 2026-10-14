@@ -1,0 +1,9 @@
+# The plugin writes and reads these with LF endings. Keep git from rewriting them:
+# the CSV parser tolerates CR, but there is no reason to churn the diffs.
+*.csv text eol=lf
+*.json text eol=lf
+*.py text eol=lf
+*.cs text eol=lf
+*.md text eol=lf
+
+*.dll binary

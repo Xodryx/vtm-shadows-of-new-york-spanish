@@ -1,0 +1,11 @@
+El archivo [i]BepInEx\LogOutput.log[/i], dentro de la carpeta del juego, casi siempre dice qué ha pasado. Si el mod ha arrancado, contiene una línea como:
+
+[code]es.csv: 5699 translations loaded.[/code]
+
+Los tres problemas más habituales:
+
+[list]
+[*][b]Español no aparece en el menú.[/b] Casi siempre es la versión equivocada de BepInEx: tiene que ser la [b]x64[/b], no la x86.
+[*][b]Los archivos están en el sitio equivocado.[/b] Tienen que estar en [i]BepInEx\plugins\SoNY-ESP\[/i], no en la carpeta principal del juego.
+[*][b]No habéis abierto el juego después de instalar BepInEx.[/b] Sin ese primer arranque, la carpeta [i]plugins[/i] todavía no existe.
+[/list]

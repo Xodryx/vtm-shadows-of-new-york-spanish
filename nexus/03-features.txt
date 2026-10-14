@@ -1,0 +1,10 @@
+[list]
+[*][b]Traducción completa[/b]: 5699 líneas de 5699. Todas las conversaciones, los dos finales y todas las ramas de diálogo opcionales.
+[*][b]También la interfaz[/b]: menú, nombres, rasgos, misiones y diccionario. Lo que el juego ya traía en español oficial se usa tal cual; las 42 descripciones del diccionario que faltaban están traducidas.
+[*][b]El español como idioma de verdad[/b]: aparece como quinta opción en el selector y no sustituye a ninguna otra. El juego ya tenía un valor [i]Language.ES[/i] sin usar en su código; el mod solo lo completa.
+[*][b]Ningún archivo del juego modificado[/b]: el texto se inyecta en memoria al arrancar. Desinstalar es borrar una carpeta.
+[*][b]Terminología oficial[/b]: sale del propio juego y de Bloodlines 2, y una comprobación automática rechaza cualquier término que se aparte de ella.
+[*][b]A prueba de fallos[/b]: cualquier línea que el plugin no encuentre se queda en inglés, sin errores y sin tocar las partidas guardadas.
+[*][b]Fácil de revisar[/b]: el plugin genera en vuestro PC una hoja con inglés y español lado a lado para quien quiera corregir.
+[*][b]Código abierto[/b]: el plugin, las traducciones y las herramientas están en GitHub.
+[/list]

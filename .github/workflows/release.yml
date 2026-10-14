@@ -1,0 +1,66 @@
+name: Release
+
+# Packages the installable build and attaches it to a GitHub Release.
+#
+# The plugin DLL is committed under release/ rather than compiled here: building it
+# needs the game's own Assembly-CSharp.dll and UnityEngine assemblies, which cannot be
+# redistributed and so cannot live in CI. Rebuild locally with
+# `dotnet build -c Release` in plugin/ and commit the result when the plugin changes.
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check the build is complete
+        run: |
+          for f in SoNY.Esp.dll es.csv ui_es.csv README.md; do
+            test -f "release/$f" || { echo "missing release/$f"; exit 1; }
+          done
+
+      - name: Report translation progress
+        id: progress
+        # Counted as CSV records, not as physical lines: a handful of translations
+        # contain a newline inside the quoted text, so `wc -l` over-reports.
+        run: |
+          lines=$(python3 -c "
+          import csv, io
+          rows = list(csv.reader(io.open('release/es.csv', encoding='utf-8-sig', newline='')))
+          print(len(rows) - 1)
+          ")
+          echo "lines=$lines" >> "$GITHUB_OUTPUT"
+          echo "$lines translated lines"
+
+      - name: Build the archive
+        # The archive carries the full BepInEx/plugins/SoNY-ESP/ path, so unpacking it
+        # into the game folder puts every file where it belongs with no manual steps.
+        run: |
+          mkdir -p dist/BepInEx/plugins/SoNY-ESP
+          cp release/SoNY.Esp.dll release/es.csv release/ui_es.csv release/README.md \
+             dist/BepInEx/plugins/SoNY-ESP/
+          cd dist && zip -r "../SoNY-ESP-${GITHUB_REF_NAME}.zip" BepInEx
+
+      - name: Publish the release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: SoNY-ESP-${{ github.ref_name }}.zip
+          body: |
+            Descomprime en la carpeta del juego para que los archivos queden en
+            `BepInEx/plugins/SoNY-ESP/` y elige **Español** en los ajustes.
+
+            Requiere BepInEx 5.4.x (x64). ${{ steps.progress.outputs.lines }} líneas de
+            diálogo traducidas; cualquier línea que el plugin no encuentre se queda en inglés.
+
+            **Hecha con IA: puede tener errores.** El texto y el plugin los ha escrito un
+            asistente de IA bajo supervisión humana y nadie los ha revisado todavía
+            jugando. Toda corrección es bienvenida.

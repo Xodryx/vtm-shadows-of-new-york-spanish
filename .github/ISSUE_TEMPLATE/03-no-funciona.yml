@@ -1,0 +1,73 @@
+name: "El mod no funciona"
+description: "El español no aparece, el juego sigue en inglés o no arranca"
+title: "[No funciona] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Antes de nada, tres comprobaciones que resuelven la mayoría de los casos:
+
+        1. Los archivos están en `BepInEx/plugins/SoNY-ESP/`, **no** en la carpeta del juego.
+        2. Abriste el juego una vez después de instalar BepInEx, antes de copiar el mod.
+        3. Elegiste **Español** en los ajustes del juego.
+
+        Si todo eso está bien, el log casi siempre dice qué ha fallado.
+
+  - type: textarea
+    id: que
+    attributes:
+      label: "Qué pasa"
+      placeholder: "En el menú de idiomas no aparece Español."
+    validations:
+      required: true
+
+  - type: textarea
+    id: log
+    attributes:
+      label: "Contenido de BepInEx/LogOutput.log"
+      description: "El archivo está en la carpeta del juego, dentro de BepInEx. Pégalo entero: es la información más útil."
+      render: text
+    validations:
+      required: true
+
+  - type: dropdown
+    id: tienda
+    attributes:
+      label: "Dónde compraste el juego"
+      options:
+        - "Steam"
+        - "GOG"
+        - "Otro"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: so
+    attributes:
+      label: "Sistema operativo"
+      description: "El mod solo se ha probado en Windows. En macOS y Linux podría funcionar, pero nadie lo ha comprobado."
+      options:
+        - "Windows"
+        - "macOS"
+        - "Linux"
+    validations:
+      required: true
+
+  - type: input
+    id: versiones
+    attributes:
+      label: "Versión del mod y de BepInEx"
+      placeholder: "mod 0.1.0, BepInEx 5.4.23.5"
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: comprobaciones
+    attributes:
+      label: "Comprobaciones hechas"
+      options:
+        - label: "Tengo BepInEx 5.4.x **x64** (no x86)"
+        - label: "Los archivos están en `BepInEx/plugins/SoNY-ESP/`"
+        - label: "Abrí el juego una vez después de instalar BepInEx"
+        - label: "Elegí Español en los ajustes"

@@ -1,0 +1,23 @@
+[b]Shadows of New York entero en español de España.[/b] Las 5699 líneas de diálogo, el diccionario del juego, los nombres de los personajes y las misiones.
+
+El español se añade como [b]quinto idioma en el menú de ajustes[/b], junto al inglés, el francés, el portugués y el ruso. No sustituye a ningún idioma y [b]no modifica ningún archivo del juego[/b]: el texto se inyecta en memoria al arrancar.
+
+[b]Parte del español ya estaba dentro del juego.[/b] Shadows of New York trae escondida una traducción oficial al español del menú, los nombres, los rasgos, los títulos del diccionario y la mitad de las misiones, pero nunca activó el idioma. Esta traducción la activa tal cual y completa todo lo demás.
+
+La terminología no es inventada: sale del español oficial del propio juego y, donde este no llega, del de [i]Vampire: The Masquerade – Bloodlines 2[/i]. [i]Kindred[/i] es [b]Vástago[/b], [i]Final Death[/i] es [b]Muerte Definitiva[/b], [i]lick[/i] es [b]chupóptero[/b].
+
+[b]— Leer antes de instalar —[/b]
+
+Los diálogos y el plugin los ha escrito una inteligencia artificial (Claude) bajo supervisión humana. [b]Nadie se ha pasado todavía el juego entero en español para revisarlo.[/b] Tomadla como un primer borrador jugable, no como una localización pulida.
+
+En concreto:
+
+[list]
+[*][b]La terminología debería ser fiable[/b]: viene de fuentes oficiales y se comprueba automáticamente.
+[*][b]Los fallos estarán en el tono y el registro[/b]: una comprobación automática sabe si un término es correcto, pero no si una frase sarcástica suena sincera.
+[*][b]Alguna línea puede salirse del cuadro[/b]: la longitud se controla con una estimación, no con el motor del juego.
+[/list]
+
+Las correcciones son bienvenidas y son la única forma de arreglar estos fallos. Si algo suena mal, copiad [b]la frase en español tal como sale en pantalla[/b]: con unas pocas palabras basta para encontrar la línea exacta entre 5699.
+
+[b]¿Queréis revisarla a fondo?[/b] El plugin puede generar en vuestro PC una hoja con el inglés y el español lado a lado, lista para corregir en Excel o LibreOffice. Las instrucciones están en el README incluido.

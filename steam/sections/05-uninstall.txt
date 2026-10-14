@@ -1,0 +1,7 @@
+[b]Primero volved a poner el inglés en los ajustes del juego.[/b] El idioma elegido se guarda como una posición en una lista, y el español está al final. Si quitáis el mod, la lista se acorta y el juego lleva esa posición al último idioma que queda: el ruso. No se rompe nada, pero un juego que de repente habla ruso parece una instalación rota. Volver a elegir inglés lo arregla en cualquier momento.
+
+Después borrad la carpeta [i]BepInEx\plugins\SoNY-ESP\[/i].
+
+Para quitar también BepInEx: [i]winhttp.dll[/i], [i]doorstop_config.ini[/i], [i].doorstop_version[/i], [i]changelog.txt[/i] y la carpeta [i]BepInEx[/i].
+
+[b]No borréis[/b] [i]UnityPlayer.dll[/i] ni [i]WinPixEventRuntime.dll[/i]: son archivos del juego, no de BepInEx.

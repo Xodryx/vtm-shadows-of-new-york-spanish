@@ -1,0 +1,14 @@
+[list]
+[*][b][url=https://github.com/BepInEx/BepInEx/releases]BepInEx 5.4.x (x64)[/url][/b]: obligatorio, se instala aparte. Ojo con la versión: [b]x64[/b], no x86.
+[*][b]Windows[/b]: la única configuración en la que se ha probado el mod.
+[/list]
+
+[b]Plataformas no compatibles[/b]
+
+[list]
+[*][b]Nintendo Switch, PS4, Xbox One: imposible.[/b] El mod es un plugin de BepInEx, y BepInEx tiene que cargarse dentro del juego antes de que arranque: una consola no lo permite. No hay alternativa.
+[*][b]macOS y Linux: sin probar.[/b] El juego existe para ambos y BepInEx los soporta, así que podría funcionar, pero nadie lo ha comprobado todavía.
+[*][b]GOG: sin probar[/b], aunque debería ser igual. Las pruebas se han hecho con la versión de Steam.
+[/list]
+
+No hace falta ningún otro mod y no hay incompatibilidades conocidas. Puede convivir con la traducción italiana del mismo autor.
