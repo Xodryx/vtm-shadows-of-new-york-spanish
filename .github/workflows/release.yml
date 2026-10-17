@@ -41,6 +41,32 @@ jobs:
           echo "lines=$lines" >> "$GITHUB_OUTPUT"
           echo "$lines translated lines"
 
+      - name: Write the release notes
+        # The section of CHANGELOG.md headed "## <version>" (tag without the leading v)
+        # goes first, then the text every release carries. The action ignores `body`
+        # when `body_path` is set, so the whole text has to be in the file.
+        env:
+          LINES: ${{ steps.progress.outputs.lines }}
+        run: |
+          python3 - "${GITHUB_REF_NAME#v}" > notes.md <<'PY'
+          import io, os, re, sys
+          text = io.open("CHANGELOG.md", encoding="utf-8").read()
+          match = re.search(r"^## " + re.escape(sys.argv[1]) + r"\s*\n(.*?)(?=^## |\Z)",
+                            text, re.S | re.M)
+          if match:
+              print("## Cambios en esta versión\n\n" + match.group(1).strip() + "\n\n---\n")
+          print(f"""Descomprime en la carpeta del juego para que los archivos queden en
+          `BepInEx/plugins/SoNY-ESP/` y elige **Español** en los ajustes.
+
+          Requiere BepInEx 5.4.x (x64). {os.environ["LINES"]} líneas de diálogo
+          traducidas; cualquier línea que el plugin no encuentre se queda en inglés.
+
+          **Hecha con IA: puede tener errores.** El texto y el plugin los ha escrito un
+          asistente de IA bajo supervisión humana y nadie los ha revisado todavía jugando.
+          Toda corrección es bienvenida.""".replace("\n          ", "\n"))
+          PY
+          cat notes.md
+
       - name: Build the archive
         # The archive carries the full BepInEx/plugins/SoNY-ESP/ path, so unpacking it
         # into the game folder puts every file where it belongs with no manual steps.
@@ -54,13 +80,4 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           files: SoNY-ESP-${{ github.ref_name }}.zip
-          body: |
-            Descomprime en la carpeta del juego para que los archivos queden en
-            `BepInEx/plugins/SoNY-ESP/` y elige **Español** en los ajustes.
-
-            Requiere BepInEx 5.4.x (x64). ${{ steps.progress.outputs.lines }} líneas de
-            diálogo traducidas; cualquier línea que el plugin no encuentre se queda en inglés.
-
-            **Hecha con IA: puede tener errores.** El texto y el plugin los ha escrito un
-            asistente de IA bajo supervisión humana y nadie los ha revisado todavía
-            jugando. Toda corrección es bienvenida.
+          body_path: notes.md
