@@ -15,8 +15,9 @@ namespace SoNY.Translation
         public const string DisplayName = "Español";
 
         /// <summary>
-        /// Dialogue System language tag. The game composes the active field as
-        /// Tag + "[Female]", so the translation is written to "es[Female]".
+        /// Dialogue System language tag. The game composes the active field as Tag plus
+        /// an optional gender suffix ("es" or "es[Female]"), depending on the LanguageSO
+        /// in use, so the translation is written to every variant.
         /// </summary>
         public const string Tag = "es";
 
@@ -34,7 +35,7 @@ namespace SoNY.Translation
 
         public const string PluginGuid = "sony.esp";
         public const string PluginName = "Shadows of New York - Spanish";
-        public const string PluginVersion = "0.1.0";
+        public const string PluginVersion = "0.1.1";
 
         /// <summary>Dialogue lines: ConvID,EntryID,Field,Conversation,Actor,...,translation.</summary>
         public const string DialogueFile = Tag + ".csv";

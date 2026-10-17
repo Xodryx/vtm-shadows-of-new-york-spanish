@@ -154,6 +154,34 @@ namespace SoNY.Translation
             if (language == _lastLanguage) return;
             _lastLanguage = language;
             Logger.LogInfo("Localization.language = '" + language + "'");
+
+            // "Translations loaded" only proves the CSV was read. What the player sees
+            // depends on whether the field the game is about to read actually has text,
+            // so say that too whenever our language becomes active.
+            if (string.IsNullOrEmpty(language) || !language.StartsWith(LanguageInfo.Tag)) return;
+            DialogueDatabase database = null;
+            try { database = DialogueManager.masterDatabase; }
+            catch { }
+            if (database == null) return;
+
+            int withText = 0;
+            foreach (var conversation in database.conversations)
+            {
+                foreach (var entry in conversation.dialogueEntries)
+                {
+                    if (entry.fields == null) continue;
+                    foreach (var field in entry.fields)
+                    {
+                        if (field.title == language && !string.IsNullOrEmpty(field.value)) withText++;
+                    }
+                }
+            }
+            if (withText > 0)
+                Logger.LogInfo(string.Format("Dialogue field '{0}' holds {1} translated lines.",
+                                             language, withText));
+            else
+                Logger.LogWarning(string.Format(
+                    "Dialogue field '{0}' is empty: dialogue will show in English.", language));
         }
 
         // ---------- DUMP ----------
@@ -315,7 +343,7 @@ namespace SoNY.Translation
             Logger.LogInfo(LanguageInfo.DialogueFile + ": " + translations.Count +
                            " translations loaded.");
 
-            string suffix = _targetField.Value;
+            string[] suffixes = TargetVariants(_targetField.Value);
             int applied = 0, missing = 0;
 
             foreach (var conversation in database.conversations)
@@ -331,19 +359,38 @@ namespace SoNY.Translation
                         if (!translations.TryGetValue(key, out translated)) { missing++; continue; }
 
                         // "en-us" -> "<suffix>", "Menu Text en-us" -> "Menu Text <suffix>"
-                        string target = field.title == "en-us"
-                            ? suffix
-                            : "Menu Text " + suffix;
-
-                        SetField(entry.fields, target, translated);
+                        foreach (var suffix in suffixes)
+                        {
+                            string target = field.title == "en-us"
+                                ? suffix
+                                : "Menu Text " + suffix;
+                            SetField(entry.fields, target, translated);
+                        }
                         applied++;
                     }
                 }
             }
 
             Logger.LogInfo(string.Format(
-                "Injection into field '{0}': {1} applied, {2} rows without a translation.",
-                suffix, applied, missing));
+                "Injection into fields '{0}': {1} applied, {2} rows without a translation.",
+                string.Join("', '", suffixes), applied, missing));
+        }
+
+        /// <summary>
+        /// The game reads the field languageTag + genderTag, and genderTag is empty unless
+        /// the active LanguageSO uses gendered localization. Which LanguageSO is active is
+        /// not ours to decide: when the scene already configures one for this language
+        /// (Spanish does, Italian does not), the plugin reuses it, and it may well be
+        /// ungendered - the field is then plain "es" and a translation written only to
+        /// "es[Female]" is never shown. So the text goes to every variant of the tag.
+        /// </summary>
+        private static string[] TargetVariants(string configured)
+        {
+            int bracket = configured.IndexOf('[');
+            if (bracket < 0) return new[] { configured, configured + "[Female]", configured + "[Male]" };
+
+            string tag = configured.Substring(0, bracket);
+            return new[] { tag, tag + "[Female]", tag + "[Male]" };
         }
 
         private static void SetField(List<Field> fields, string title, string value)

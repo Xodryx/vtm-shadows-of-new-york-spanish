@@ -18,7 +18,7 @@ deformerebbe.
 |---|---|
 | Mod Name | `Traducción al español - Spanish Translation` |
 | Summary | vedi sotto |
-| Version | `0.1.0` |
+| Version | `0.1.1` |
 | Language | Spanish |
 | Category | Translations, oppure Miscellaneous se non esiste |
 | Tag IA | **AI-Generated Content**, non "AI Assisted" (obbligatorio per policy) |

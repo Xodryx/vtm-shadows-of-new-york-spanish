@@ -108,10 +108,17 @@ No se modifica ningún archivo del juego, así que no hay nada que restaurar. No
 
 ## Comprobar que se ha cargado
 
-`BepInEx/LogOutput.log` debería contener:
+Con Español elegido en los ajustes, `BepInEx/LogOutput.log` debería contener:
 
 ```
 [Info   :Shadows of New York - Spanish] Español added to the language selector.
-[Info   :Shadows of New York - Spanish] es.csv: <n> translations loaded.
-[Info   :Shadows of New York - Spanish] Localization.language = 'es[Female]'
+[Info   :Shadows of New York - Spanish] es.csv: 5699 translations loaded.
+[Info   :Shadows of New York - Spanish] Localization.language = 'es'
+[Info   :Shadows of New York - Spanish] Dialogue field 'es' holds 5418 translated lines.
 ```
+
+La última línea es la que importa: confirma que los diálogos van a salir en español. Si
+en su lugar ves `Dialogue field ... is empty`, abre una incidencia con el log completo.
+
+Si tienes instalada también la traducción italiana, al arrancar el juego puede aparecer el
+idioma equivocado: vuelve a elegir Español en los ajustes.
